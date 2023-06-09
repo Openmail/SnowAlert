@@ -29,7 +29,7 @@ setup(
         'azure-storage-common==2.1.0',
         'google-api-python-client==1.8.2',
         'pyTenable==1.1.1',
-        'boto3==1.9.253',
+        'boto3',
         'twilio==6.29.4',
         'simple_salesforce==0.74.3',
         'pdpyras==4.0',
