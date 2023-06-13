@@ -30,6 +30,7 @@ setup(
         'google-api-python-client==1.8.2',
         'pyTenable==1.1.1',
         'boto3',
+        'cryptography==2.9.1',
         'twilio==6.29.4',
         'simple_salesforce==0.74.3',
         'pdpyras==4.0',
