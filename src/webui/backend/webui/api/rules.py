@@ -51,7 +51,7 @@ def get_rules():
                 ),
                 "target": rule['name'].split('_')[-2].upper(),
                 "type": rule['name'].split('_')[-1].upper(),
-                "body": rule['text'],
+                "body": rule['text'].replace("comment = ", "COMMENT=", 1).replace('\\n', '\n').replace(' \nAS\nSELECT', '\nAS\nSELECT'),
                 "results": (
                     list(db.fetch(ctx, f"SELECT * FROM rules.{rule['name']};"))
                     if rule['name'].endswith("_POLICY_DEFINITION")
