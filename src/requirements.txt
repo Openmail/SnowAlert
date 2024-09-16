@@ -9,7 +9,7 @@ boto3==1.9.33
 certifi==2018.10.15
 cffi==1.11.5
 chardet==3.0.4
-cryptography==2.3.1
+cryptography==40.0.2
 defusedxml==0.5.0
 docutils==0.14
 future==0.17.0
@@ -36,7 +36,7 @@ requests==2.20.1
 s3transfer==0.1.13
 simple_salesforce==0.74.3
 six==1.11.0
-snowflake-connector-python==2.1.0
-snowflake-sqlalchemy==1.1.2
+snowflake-connector-python==3.0.4
+snowflake-sqlalchemy==1.4.7
 SQLAlchemy==1.3.3
 urllib3==1.24.2
