@@ -28,7 +28,7 @@ setup(
         'azure-storage-blob==2.1.0',
         'azure-storage-common==2.1.0',
         'google-api-python-client==1.8.2',
-        'pyTenable==1.1.1',
+        'pyTenable==1.1.4',
         'boto3',
         'cryptography==2.9.1',
         'twilio==6.29.4',
