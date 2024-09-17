@@ -35,7 +35,8 @@ logger = logbook.Logger(__name__)
 
 app = SAFlask(__name__.split('.')[0], static_folder=None)  # type: ignore
 app.config.from_object(config.FlaskConfig)  # type: ignore
-app.debug = config.DEBUG
+#app.debug = config.DEBUG
+app.debug = True
 
 
 def clear_cache(request):
