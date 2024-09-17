@@ -26,43 +26,7 @@ def unindent(text):
 @rules_api.route('', methods=['GET'])
 def get_rules():
     logger.info('>>>>>>>>>>>>')
-    if not hmac.compare_digest(request.cookies.get("sid", ""), SECRET):
-        return jsonify(rules=[])
-
-    rule_type = request.args.get('type', '%').upper()
-    rule_target = request.args.get('target', '%').upper()
-
-    logger.info(f'Fetching {rule_target}_{rule_type} rules...')
-
-    oauth = json.loads(request.headers.get('Authorization') or '{}')
-    if not oauth and not dbconfig.PRIVATE_KEY:
-        return jsonify(success=False, message='please log in')
-
-    ctx = db.connect(oauth=oauth)
-    rules = db.fetch(ctx, f"SHOW VIEWS LIKE '%_{rule_target}\_{rule_type}' IN rules")
-
-    return jsonify(
-        rules=[
-            {
-                "title": re.sub(
-                    '_(alert|violation|policy)_(query|suppression|definition)$',
-                    '',
-                    rule['name'],
-                    flags=re.I,
-                ),
-                "target": rule['name'].split('_')[-2].upper(),
-                "type": rule['name'].split('_')[-1].upper(),
-                "body": rule['text'].replace("comment = ", "COMMENT=", 1).replace('\\n', '\n').replace(' \nAS\nSELECT', '\nAS\nSELECT'),
-                "results": (
-                    list(db.fetch(ctx, f"SELECT * FROM rules.{rule['name']};"))
-                    if rule['name'].endswith("_POLICY_DEFINITION")
-                    else None
-                ),
-            }
-            for rule in rules
-            if db.is_valid_rule_name(rule['name'])
-        ]
-    )
+    return jsonify(rules=[])
 
 
 @rules_api.route('', methods=['POST'])
