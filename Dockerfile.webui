@@ -33,5 +33,7 @@ RUN apt-get update \
 # link frontend build into backend venv
 RUN ln -s $PWD/snowalert/src/webui/frontend ./snowalert/venv/lib/python3.7/
 
+EXPOSE 5000
+
 WORKDIR /var/task/snowalert/src/webui/backend/
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "--log-level=debug", "--access-logfile=-", "webui.app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "--access-logfile=-", "webui.app:app"]
