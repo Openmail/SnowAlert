@@ -64,6 +64,7 @@ def error_handler(ex):
 
 def main():
     logbook.StreamHandler(sys.stdout).push_application()
+    logger.info('#############')
     app.run(host, port)
 
 
