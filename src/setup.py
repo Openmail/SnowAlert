@@ -25,7 +25,7 @@ setup(
         'azure-mgmt-network==5.0.0',
         'azure-mgmt-storage==4.1.0',
         'azure-mgmt-subscription==0.5.0',
-        'azure-storage-blob==12.10.1',
+        'azure-storage-blob==2.1.0',
         'azure-storage-common==2.1.0',
         'google-api-python-client==1.8.2',
         'pyTenable==1.1.4',
