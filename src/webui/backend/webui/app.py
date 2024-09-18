@@ -63,8 +63,8 @@ def error_handler(ex):
 
 
 def main():
+    raise RuntimeError(">>>>>>>>##########33")
     logbook.StreamHandler(sys.stdout).push_application()
-    logger.info('#############')
     app.run(host, port)
 
 
