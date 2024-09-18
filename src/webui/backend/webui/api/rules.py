@@ -25,7 +25,6 @@ def unindent(text):
 
 @rules_api.route('', methods=['GET'])
 def get_rules():
-    logger.info('>>>>>>>>>>>>')
     if not hmac.compare_digest(request.cookies.get("sid", ""), SECRET):
         return jsonify(rules=[])
 
