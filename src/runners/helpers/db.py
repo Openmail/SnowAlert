@@ -145,7 +145,7 @@ def fetch(ctx, query=None, fix_errors=True, params=None):
             break
 
         def parse_field(value, field_type):
-            if value is not None and field_type['name'] in {
+            if value is not None and field_type.name in {
                 'OBJECT',
                 'ARRAY',
                 'VARIANT',
